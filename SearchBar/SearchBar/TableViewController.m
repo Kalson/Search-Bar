@@ -8,13 +8,16 @@
 
 #import "TableViewController.h"
 
-@interface TableViewController ()
+@interface TableViewController () <UISearchResultsUpdating>
 
 @end
 
 @implementation TableViewController
 {
     NSArray *favoriteFoods;
+    
+    UISearchController *mySearchController; // declare this global also gets you the animation
+    NSArray *searchResults;
 }
 
 - (void)viewDidLoad {
@@ -34,6 +37,14 @@
     
     // retrieve food array
     favoriteFoods = [plistDic objectForKey:@"Food"];
+    
+    // create the search bar
+    mySearchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    [mySearchController.searchBar sizeToFit]; // shows the search bar
+    self.tableView.tableHeaderView = mySearchController.searchBar;
+    self.definesPresentationContext = YES;
+    mySearchController.dimsBackgroundDuringPresentation = NO;
+    mySearchController.searchResultsUpdater = self;
     
 }
 
