@@ -14,6 +14,7 @@
 		2651AF761B1FBC94001D6CF0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2651AF741B1FBC94001D6CF0 /* LaunchScreen.xib */; };
 		2651AF821B1FBC95001D6CF0 /* SearchBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2651AF811B1FBC95001D6CF0 /* SearchBarTests.m */; };
 		2651AF8D1B1FBD15001D6CF0 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2651AF8C1B1FBD15001D6CF0 /* TableViewController.m */; };
+		2651AF8F1B1FC0C1001D6CF0 /* Items.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2651AF8E1B1FC0C1001D6CF0 /* Items.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		2651AF811B1FBC95001D6CF0 /* SearchBarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBarTests.m; sourceTree = "<group>"; };
 		2651AF8B1B1FBD15001D6CF0 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		2651AF8C1B1FBD15001D6CF0 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		2651AF8E1B1FC0C1001D6CF0 /* Items.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Items.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				2651AF661B1FBC94001D6CF0 /* Info.plist */,
 				2651AF671B1FBC94001D6CF0 /* main.m */,
+				2651AF8E1B1FC0C1001D6CF0 /* Items.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				2651AF711B1FBC94001D6CF0 /* Main.storyboard in Resources */,
 				2651AF761B1FBC94001D6CF0 /* LaunchScreen.xib in Resources */,
 				2651AF731B1FBC94001D6CF0 /* Images.xcassets in Resources */,
+				2651AF8F1B1FC0C1001D6CF0 /* Items.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +422,7 @@
 				2651AF871B1FBC95001D6CF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2651AF881B1FBC95001D6CF0 /* Build configuration list for PBXNativeTarget "SearchBarTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +431,7 @@
 				2651AF8A1B1FBC95001D6CF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

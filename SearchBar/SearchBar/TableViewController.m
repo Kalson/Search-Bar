@@ -14,7 +14,7 @@
 
 @implementation TableViewController
 {
-    NSArray *stuff;
+    NSArray *favoriteFoods;
 }
 
 - (void)viewDidLoad {
@@ -26,9 +26,15 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-//    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    // create a path for the plist
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"Items" ofType:@"plist"];
     
-    stuff = @[@"kool",@"yay"];
+    // retrieve the dictionary by init with the path from the plist
+    NSDictionary *plistDic = [[NSDictionary alloc] initWithContentsOfFile:path];
+    
+    // retrieve food array
+    favoriteFoods = [plistDic objectForKey:@"Food"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +51,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return stuff.count;
+    return favoriteFoods.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -59,7 +65,7 @@
     }
     
     
-    cell.textLabel.text = stuff[indexPath.row];
+    cell.textLabel.text = favoriteFoods[indexPath.row];
     // Configure the cell...
     
     return cell;
