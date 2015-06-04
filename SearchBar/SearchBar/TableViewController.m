@@ -48,6 +48,22 @@
     
 }
 
+- (void)filterContentForSearch:(NSString *)searchText
+{
+    // create a new string using the Predicate
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self contains[c] %@",searchText]; // use self, instead of name
+    
+    // filter the array using the predicate in another array
+    searchResults = [favoriteFoods filteredArrayUsingPredicate:predicate];
+    
+}
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
+{
+    [self filterContentForSearch:searchController.searchBar.text];
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -62,7 +78,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return favoriteFoods.count;
+    
+    
+    if (mySearchController.isActive) {
+        return searchResults.count;
+    } else {
+        return favoriteFoods.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,8 +97,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdenitifier];
     }
     
-    
-    cell.textLabel.text = favoriteFoods[indexPath.row];
+    if (mySearchController.isActive){
+        cell.textLabel.text = searchResults[indexPath.row];
+    } else {
+        cell.textLabel.text = favoriteFoods[indexPath.row];
+    }
     // Configure the cell...
     
     return cell;
